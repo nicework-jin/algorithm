@@ -1,7 +1,7 @@
 """
 백준, 1157 단어공부
-대문자 변환 -> 알파벳별 사용된 횟수 -> 가장 많이 사용된 알파벳 리턴 
-* 가장 많이 사용된 알파벳이 2개 이상이면 ? 리턴 
+대문자 변환 -> 알파벳별 사용된 횟수 -> 가장 많이 사용된 알파벳 리턴
+* 가장 많이 사용된 알파벳이 2개 이상이면 ? 리턴
 """
 
 import sys
@@ -32,8 +32,8 @@ def make_upper_case(word):
 
 
 def answer(word):
-    upper_cased_word = make_upper_case(word)
-    used_number_alphabet_dict = count_used_number_alphabet(upper_cased_word)
+    upper_cased_word_list = make_upper_case(word)
+    used_number_alphabet_dict = count_used_number_alphabet(upper_cased_word_list)
     return get_most_used_alphabet(used_number_alphabet_dict)
 
 
