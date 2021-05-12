@@ -1,4 +1,4 @@
-# 프로그래머스, 완주하지 못한 선수
+# 프로그래머스, 전화번호 목록
 
 def solution(phone_book):
     phone_book.sort()
