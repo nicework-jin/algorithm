@@ -1,3 +1,8 @@
+"""
+프로그래머스, 프린터
+
+for문과 함께 any() 사용한 것이 특징 => 17번 라인
+"""
 from collections import deque
 
 
