@@ -28,7 +28,7 @@ if __name__ == "__main__":
     bridge_length = 100
     weight = 100
     truck_weight = [10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
-    #
+    
     bridge_length = 100
     weight = 100
     truck_weight = [10]
