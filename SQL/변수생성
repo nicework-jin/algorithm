@@ -33,4 +33,19 @@ SELECT h+1 FROM HOUR WHERE h<30)
 SELECT h AS HOUR, COALESCE(COUNT(ANIMAL_ID),0) AS COUNT
 FROM HOUR LEFT JOIN ANIMAL_OUTS ANI ON HOUR.h = HOUR(ANI.DATETIME)
 GROUP BY HOUR.h;
+----------------------------------------------------------------------------------------------------------------
+[WITH RECURSIVE 골격 분석]
+- WITH RECURSIVE 다음에 나오는 HOUR이 테이블로 사용된다. Alias 안에 union 쿼리를 반드시 넣는다.
+- SELECT 0을 하면, 컬럼명이 0, 값이 0으로 출력된다. UNION ALL 과정에서 두 쿼리 결과가 행간 합쳐진 것이다.
+
+WITH RECURSIVE로 생성된 테이블은 원하는 테이블과 JOIN하여 사용할 수 있다.
+----------------------------------------------------------------------------------------------------------------
+WITH RECURSIVE HOUR AS (
+    SELECT 0 AS H
+        UNION ALL
+    SELECT H + 1
+    FROM HOUR WHERE H < 23)
+
+SELECT H
+FROM HOUR
 ================================================================================================================
