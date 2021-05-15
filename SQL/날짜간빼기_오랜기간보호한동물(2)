@@ -1,0 +1,10 @@
+DATEDIFF(최근날짜, 이전날짜) => 최근날짜 - 이전날짜  , [https://extbrain.tistory.com/78] : 잘 정리된 블로그]
+
+-- "입양 간 동물 중" "보호기간"이 가장 긴 동물 "두 마리"
+SELECT I.ANIMAL_ID, I.NAME
+FROM ANIMAL_INS I
+LEFT JOIN ANIMAL_OUTS O
+    ON I.ANIMAL_ID = O.ANIMAL_ID
+WHERE O.ANIMAL_ID IS NOT NULL
+ORDER BY DATEDIFF(O.DATETIME, I.DATETIME) DESC
+LIMIT 2
