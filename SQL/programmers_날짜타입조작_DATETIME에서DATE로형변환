@@ -1,0 +1,6 @@
+2016-04-06 15:53:00 ==> 2016-04-06으로 출력
+포맷별 양식이 잘 정리되어 있음: https://selgii.tistory.com/8
+==============================================================
+SELECT ANIMAL_ID, NAME, DATE_FORMAT(DATETIME, '%Y-%m-%d')
+FROM ANIMAL_INS
+ORDER BY ANIMAL_ID
