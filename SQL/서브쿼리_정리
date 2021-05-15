@@ -1,0 +1,32 @@
+* 중첩 서브쿼리:
+서브 쿼리의 가장 일반적인 형태로 
+(1) 조건에 충족되는 정보에 속하는 테이블을 만들어서
+(2) 그 안에서 쿼리를 작성/리턴함.
+
+SELECT * 
+FROM student A
+WHERE A.student_name IN (SELECT B.student_name
+                          FROM subject B
+                          WHERE B.subject_name = 'MATH');
+=====================================================================================
+* 인라인뷰 서브쿼리:
+
+
+WHERE 절에서의 서브쿼리
+두 개의 다른 테이블이 존재할 때, 한 쪽 테이블에서 집계 정보를 산출할 때 사용. 
+- 두 테이블을 FROM으로 받은 다음, WHERE절로 PRIMARY - FOREIGN 키를 받은 것이 포인트.
+
+SELECT A.item_name, subquery1.total_amt
+FROM suppliers A,
+     (SELECT supplier_id, SUM(B.amount) AS total_amt
+      FROM orders B
+      GROUP BY supplier_id) subquery1
+WHERE subquery1.supplier_id = A.supplier_id;
+=====================================================================================
+*스칼라 서브쿼리:
+동일 테이블에 존하지 않는 집계 정보(덧셈, 평균, 갯수, 최소, 최대) 등을 산출할 때 사용 
+- 서브쿼리는 반드시 단일 값을 리턴해야 함.
+
+SELECT CD_PLANT, NM_PLANT, 
+  (SELECT AVG(UM) FROM TABLE_ITEM) AS UM
+FROM TABLE_PLANT
