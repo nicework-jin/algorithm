@@ -6,7 +6,7 @@ def remove_node(tree, parents, n):
     """ 요청받은 노드를 제거 합니다.
 
     1. tree 내에 자신(n)을 자식으로 나타내는 부모 노드에서 n을 지웁니다.
-      -> n == 0은 루트 노드이므로 부모 노드가 없습니다.
+      -> parents[n] == -1은 루트 노드이므로 부모 노드가 없습니다.
     2. 재귀적으로 자식 노드를 지웁니다. 지워진 자식 노드의 tree 내에 값을 [-1]로 표기합니다.
     """
     if parents[n] != -1:
@@ -35,7 +35,7 @@ def solution():
         if parents[i] == -1:
             continue
         tree[parents[i]].append(i)
-        
+
     remove_node(tree, parents, node_to_remove := int(INPUT()))
     return tree.count([])
 
