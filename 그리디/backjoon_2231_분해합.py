@@ -1,5 +1,4 @@
 import sys
-
 INPUT = sys.stdin.readline
 
 
@@ -12,9 +11,9 @@ def solution():
     (1) 1 ~ n-1 해당하는 범위의 값에 대해 각각 분해합을 구한다.
     (2) 최초로 발견되는 생성자를 답으로 리턴한다. 답이 없으면, 0을 리턴한다.
     """
-    for x in range(1, n := int(INPUT())):
-        if (get_m := x + sum(map(int, str(x)))) == n:
-            return get_m
+    for m in range(1, n := int(INPUT())):
+        if (get_n := m + sum(map(int, str(m)))) == n:
+            return m
     return 0
 
 
