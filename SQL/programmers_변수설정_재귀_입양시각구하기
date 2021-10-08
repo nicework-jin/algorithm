@@ -24,6 +24,8 @@ WHERE @hour < 23;
 - WITH RECURSIVE: 함께 실행되늰 재귀 쿼리다. (?)
 - UNION ALL은 테이블 간 행을 합친다. UNION은 중복된 행을 제거하지만, UNION ALL은 중복된 행을 허용한다.
 - COALESCE: 주어진 인수에서 NULL이 아닌 첫 번째 값을 반환한다.  => 이 경우에는 COALESCE를 사용할 필요가 없다. COUNT 결과이므로 어차피 0으로 주어지기 때문.
+    COALESCE에 대한 말이 어려우니까. 아래 블로그에서 예제 캡처한 내용 확인.
+    https://crazykim2.tistory.com/277
 ----------------------------------------------------------------------------------------------------------------
 WITH RECURSIVE HOUR AS(
 SELECT 0 AS h 
