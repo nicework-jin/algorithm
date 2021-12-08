@@ -30,14 +30,12 @@ def heapify(end):
 
 def solution():
     end = len(arr)
-    heapify(end)
 
     # heapSort
     for i in range(end, 1, -1):
+        heapify(end)
         arr[0], arr[end - 1] = arr[end - 1], arr[0]
         end -= 1
-        heapify(end)
-        print(arr, end)
 
 
 if __name__ == "__main__":
@@ -45,4 +43,5 @@ if __name__ == "__main__":
 
     for _ in range(5):
         arr.append(random.randint(0, 5))
+    arr = [7,6,5,8,3,5,9,1,6]
     solution()
